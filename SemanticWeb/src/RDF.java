@@ -6,6 +6,9 @@ import com.hp.hpl.jena.vocabulary.*;
 
 public class RDF {
 	public static void runExamples() {
+		System.out.println("RDF Examples");
+		System.out.println("");
+		
 		// some definitions
 		String personURI 	= "http://somewhere/JohnSmith";
 		String givenName    = "John";
