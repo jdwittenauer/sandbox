@@ -1,4 +1,4 @@
-java-sandbox
+sandbox
 ============
 
-Catch-all for miscellaneous java-based projects.
+Catch-all for miscellaneous code experiments.
