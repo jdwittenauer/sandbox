@@ -1,9 +1,11 @@
 #include <stdio.h>
 #include <string.h>
 
-#define MAXLINES 5000			/* constant defining max number of lines to sort */
+// constant defining max number of lines to sort
+#define MAXLINES 5000
 
-char *linePointer[MAXLINES];	/* pointer to text lines */
+//pointer to text lines
+char *linePointer[MAXLINES];
 
 int ReadLines(char *linePointer[], int nLines);
 void WriteLines(char *linePointer[], int nLines);
@@ -47,7 +49,8 @@ int ReadLines(char *linePointer[], int maxLines)
 		}
 		else
 		{
-			line[length - 1] = '\0';	/* delete newline */
+			// delete newline
+			line[length - 1] = '\0';
 			strcpy(pointer, line);
 			linePointer[nLines++] = pointer;
 		}
@@ -69,7 +72,7 @@ void QuickSort(char *v[], int left, int right)
 	int i, last;
 
 	if (left >= right)
-		return;			/* less than two elements */
+		return;
 
 	Swap(v, left, (left + right) / 2);
 	last = left;
