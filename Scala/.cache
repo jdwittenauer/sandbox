@@ -1,0 +1,72 @@
+format version: 5
+output mode:
+1 items
+0 -> multiple
+output directories:
+1 items
+C:\Users\John\Documents\Workspace\Scala\src -> C:\Users\John\Documents\Workspace\Scala\bin
+compile options:
+9 items
+0 -> -javabootclasspath
+1 -> C:\Program Files\Java\jre1.8.0_20\lib\resources.jar;C:\Program Files\Java\jre1.8.0_20\lib\rt.jar;C:\Program Files\Java\jre1.8.0_20\lib\jsse.jar;C:\Program Files\Java\jre1.8.0_20\lib\jce.jar;C:\Program Files\Java\jre1.8.0_20\lib\charsets.jar;C:\Program Files\Java\jre1.8.0_20\lib\jfr.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\cldrdata.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\dnsns.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\dns_sd.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\jaccess.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\jfxrt.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\localedata.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\nashorn.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\sunec.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\sunmscapi.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\sunpkcs11.jar;C:\Program Files\Java\jre1.8.0_20\lib\ext\zipfs.jar
+2 -> -javaextdirs
+3 ->  
+4 -> -bootclasspath
+5 -> C:\Users\John\.eclipse\org.eclipse.platform_4.4.1_1709980481_win32_win32_x86_64\plugins\org.scala-lang.scala-library_2.11.4.v20141023-110636-d783face36.jar
+6 -> -target:jvm-1.8
+7 -> -encoding
+8 -> Cp1252
+javac options:
+0 items
+compiler version:
+1 items
+0 -> 2.11.4
+compile order:
+1 items
+0 -> Mixed
+name hashing:
+1 items
+0 -> false
+products:
+0 items
+binary dependencies:
+0 items
+direct source dependencies:
+0 items
+direct external dependencies:
+0 items
+public inherited source dependencies:
+0 items
+public inherited external dependencies:
+0 items
+member reference internal dependencies:
+0 items
+member reference external dependencies:
+0 items
+inheritance internal dependencies:
+0 items
+inheritance external dependencies:
+0 items
+class names:
+0 items
+used names:
+0 items
+product stamps:
+0 items
+source stamps:
+0 items
+binary stamps:
+0 items
+class names:
+0 items
+internal apis:
+0 items
+external apis:
+0 items
+source infos:
+0 items
+compilations:
+3 items
+0 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABSgOotOh1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAK0M6XFVzZXJzXEpvaG5cRG9jdW1lbnRzXFdvcmtzcGFjZVxTY2FsYVxiaW50ACtDOlxVc2Vyc1xKb2huXERvY3VtZW50c1xXb3Jrc3BhY2VcU2NhbGFcc3Jj
+1 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABSgOpD+N1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAK0M6XFVzZXJzXEpvaG5cRG9jdW1lbnRzXFdvcmtzcGFjZVxTY2FsYVxiaW50ACtDOlxVc2Vyc1xKb2huXERvY3VtZW50c1xXb3Jrc3BhY2VcU2NhbGFcc3Jj
+2 -> rO0ABXNyABV4c2J0aS5hcGkuQ29tcGlsYXRpb27t+uDDauigQgIAAkoACXN0YXJ0VGltZVsAB291dHB1dHN0ABpbTHhzYnRpL2FwaS9PdXRwdXRTZXR0aW5nO3hwAAABSgOrAxZ1cgAaW0x4c2J0aS5hcGkuT3V0cHV0U2V0dGluZzt/asLzp4elQgIAAHhwAAAAAXNyABd4c2J0aS5hcGkuT3V0cHV0U2V0dGluZ3rZmkd0+x17AgACTAAPb3V0cHV0RGlyZWN0b3J5dAASTGphdmEvbGFuZy9TdHJpbmc7TAAPc291cmNlRGlyZWN0b3J5cQB+AAZ4cHQAK0M6XFVzZXJzXEpvaG5cRG9jdW1lbnRzXFdvcmtzcGFjZVxTY2FsYVxiaW50ACtDOlxVc2Vyc1xKb2huXERvY3VtZW50c1xXb3Jrc3BhY2VcU2NhbGFcc3Jj
