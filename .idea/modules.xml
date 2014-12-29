@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Akka/Akka.iml" filepath="$PROJECT_DIR$/Akka/Akka.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Algorithms/Algorithms.iml" filepath="$PROJECT_DIR$/Algorithms/Algorithms.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Cassandra/Cassandra.iml" filepath="$PROJECT_DIR$/Cassandra/Cassandra.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataStructures/DataStructures.iml" filepath="$PROJECT_DIR$/DataStructures/DataStructures.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" filepath="$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java8/Java8.iml" filepath="$PROJECT_DIR$/Java8/Java8.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Lucene/Lucene.iml" filepath="$PROJECT_DIR$/Lucene/Lucene.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MongoDB/MongoDB.iml" filepath="$PROJECT_DIR$/MongoDB/MongoDB.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Neo4j/Neo4j.iml" filepath="$PROJECT_DIR$/Neo4j/Neo4j.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Scala/Scala.iml" filepath="$PROJECT_DIR$/Scala/Scala.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SemanticWeb/SemanticWeb.iml" filepath="$PROJECT_DIR$/SemanticWeb/SemanticWeb.iml" />
+    </modules>
+  </component>
+</project>
