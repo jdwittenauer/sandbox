@@ -3,5 +3,6 @@ public class Program {
         FactoryPattern.run();
         AbstractFactoryPattern.run();
         SingletonPattern.run();
+        BuilderPattern.run();
     }
 }
