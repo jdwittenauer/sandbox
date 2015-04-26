@@ -1,4 +1,4 @@
-import common.*;
+import common.factory.*;
 import common.interfaces.*;
 
 public class FactoryPattern {

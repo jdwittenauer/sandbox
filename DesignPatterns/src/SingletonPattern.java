@@ -1,4 +1,4 @@
-import common.*;
+import common.singleton.*;
 
 public class SingletonPattern {
     public static void run() {

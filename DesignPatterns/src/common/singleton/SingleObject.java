@@ -1,4 +1,4 @@
-package common;
+package common.singleton;
 
 public class SingleObject {
     private static SingleObject instance = new SingleObject();

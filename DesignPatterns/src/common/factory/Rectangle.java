@@ -1,4 +1,4 @@
-package common;
+package common.factory;
 
 import common.interfaces.*;
 
