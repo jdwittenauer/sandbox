@@ -5,5 +5,6 @@ public class Program {
         SingletonPattern.run();
         BuilderPattern.run();
         PrototypePattern.run();
+        AdapterPattern.run();
     }
 }
