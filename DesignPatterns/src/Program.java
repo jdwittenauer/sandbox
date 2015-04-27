@@ -6,5 +6,6 @@ public class Program {
         BuilderPattern.run();
         PrototypePattern.run();
         AdapterPattern.run();
+        BridgePattern.run();
     }
 }
