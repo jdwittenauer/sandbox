@@ -7,5 +7,7 @@ public class Program {
         PrototypePattern.run();
         AdapterPattern.run();
         BridgePattern.run();
+        CompositePattern.run();
+        DecoratorPattern.run();
     }
 }
