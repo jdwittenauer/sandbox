@@ -9,5 +9,7 @@ public class Program {
         BridgePattern.run();
         CompositePattern.run();
         DecoratorPattern.run();
+        FacadePattern.run();
+        FlyweightPattern.run();
     }
 }
