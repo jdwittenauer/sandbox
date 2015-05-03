@@ -11,5 +11,6 @@ public class Program {
         DecoratorPattern.run();
         FacadePattern.run();
         FlyweightPattern.run();
+        ProxyPattern.run();
     }
 }
