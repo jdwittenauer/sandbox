@@ -1,3 +1,5 @@
+package demos;
+
 import common.adapter.*;
 
 public class AdapterPattern {

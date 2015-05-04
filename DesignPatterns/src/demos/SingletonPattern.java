@@ -1,3 +1,5 @@
+package demos;
+
 import common.singleton.*;
 
 public class SingletonPattern {

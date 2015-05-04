@@ -1,3 +1,5 @@
+package demos;
+
 public class Program {
     public static void main(String[] args) {
         FactoryPattern.run();
@@ -12,5 +14,7 @@ public class Program {
         FacadePattern.run();
         FlyweightPattern.run();
         ProxyPattern.run();
+        CommandPattern.run();
+        InterpreterPattern.run();
     }
 }

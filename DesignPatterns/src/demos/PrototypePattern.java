@@ -1,3 +1,5 @@
+package demos;
+
 import common.prototype.*;
 
 public class PrototypePattern {

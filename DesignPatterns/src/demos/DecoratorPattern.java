@@ -1,3 +1,5 @@
+package demos;
+
 import common.decorator.*;
 import common.interfaces.*;
 

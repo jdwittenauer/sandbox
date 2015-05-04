@@ -1,3 +1,5 @@
+package demos;
+
 import common.composite.*;
 
 public class CompositePattern {

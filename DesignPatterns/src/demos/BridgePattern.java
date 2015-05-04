@@ -1,3 +1,5 @@
+package demos;
+
 import common.bridge.*;
 
 public class BridgePattern {

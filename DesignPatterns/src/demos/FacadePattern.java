@@ -1,3 +1,5 @@
+package demos;
+
 import common.facade.*;
 
 public class FacadePattern {
