@@ -18,5 +18,8 @@ public class Program {
         ProxyPattern.run();
         CommandPattern.run();
         InterpreterPattern.run();
+        IteratorPattern.run();
+        MediatorPattern.run();
+        ObserverPattern.run();
     }
 }
