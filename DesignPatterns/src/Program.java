@@ -21,5 +21,9 @@ public class Program {
         IteratorPattern.run();
         MediatorPattern.run();
         ObserverPattern.run();
+        StatePattern.run();
+        StrategyPattern.run();
+        TemplatePattern.run();
+        VisitorPattern.run();
     }
 }
