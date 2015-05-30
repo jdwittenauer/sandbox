@@ -9,10 +9,12 @@
       <module fileurl="file://$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" filepath="$PROJECT_DIR$/DesignPatterns/DesignPatterns.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java8/Java8.iml" filepath="$PROJECT_DIR$/Java8/Java8.iml" />
       <module fileurl="file://$PROJECT_DIR$/Lucene/Lucene.iml" filepath="$PROJECT_DIR$/Lucene/Lucene.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MapReduce/MapReduce.iml" filepath="$PROJECT_DIR$/MapReduce/MapReduce.iml" />
       <module fileurl="file://$PROJECT_DIR$/MongoDB/MongoDB.iml" filepath="$PROJECT_DIR$/MongoDB/MongoDB.iml" />
       <module fileurl="file://$PROJECT_DIR$/Neo4j/Neo4j.iml" filepath="$PROJECT_DIR$/Neo4j/Neo4j.iml" />
       <module fileurl="file://$PROJECT_DIR$/Scala/Scala.iml" filepath="$PROJECT_DIR$/Scala/Scala.iml" />
       <module fileurl="file://$PROJECT_DIR$/SemanticWeb/SemanticWeb.iml" filepath="$PROJECT_DIR$/SemanticWeb/SemanticWeb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Storm/Storm.iml" filepath="$PROJECT_DIR$/Storm/Storm.iml" />
     </modules>
   </component>
 </project>
