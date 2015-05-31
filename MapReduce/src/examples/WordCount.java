@@ -24,9 +24,7 @@ import org.apache.hadoop.util.GenericOptionsParser;
 import org.apache.hadoop.util.StringUtils;
 
 public class WordCount {
-
     public static class TokenizerMapper extends Mapper<Object, Text, Text, IntWritable> {
-
         enum CountersEnum { INPUT_WORDS }
 
         private final static IntWritable one = new IntWritable(1);
