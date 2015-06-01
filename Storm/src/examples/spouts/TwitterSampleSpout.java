@@ -48,7 +48,7 @@ public class TwitterSampleSpout extends BaseRichSpout {
 
     @Override
     public void open(Map conf, TopologyContext context, SpoutOutputCollector collector) {
-        queue = new LinkedBlockingQueue<Status>(1000);
+        queue = new LinkedBlockingQueue<>(1000);
         _collector = collector;
 
         StatusListener listener = new StatusListener() {
