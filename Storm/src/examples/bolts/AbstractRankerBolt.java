@@ -1,6 +1,7 @@
 package examples.bolts;
 
 import backtype.storm.Config;
+import backtype.storm.Constants;
 import backtype.storm.topology.BasicOutputCollector;
 import backtype.storm.topology.OutputFieldsDeclarer;
 import backtype.storm.topology.base.BaseBasicBolt;
@@ -9,7 +10,6 @@ import backtype.storm.tuple.Tuple;
 import backtype.storm.tuple.Values;
 import org.apache.log4j.Logger;
 import examples.tools.Rankings;
-import examples.tools.TupleHelpers;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +22,11 @@ import java.util.Map;
  * tuples are retrieved and counted.
  */
 public abstract class AbstractRankerBolt extends BaseBasicBolt {
+    public static boolean isTickTuple(Tuple tuple) {
+        return tuple.getSourceComponent().equals(Constants.SYSTEM_COMPONENT_ID) &&
+                tuple.getSourceStreamId().equals(Constants.SYSTEM_TICK_STREAM_ID);
+    }
+
     private static final long serialVersionUID = 4931640198501530202L;
     private static final int DEFAULT_EMIT_FREQUENCY_IN_SECONDS = 2;
     private static final int DEFAULT_COUNT = 10;
@@ -58,7 +63,7 @@ public abstract class AbstractRankerBolt extends BaseBasicBolt {
      */
     @Override
     public final void execute(Tuple tuple, BasicOutputCollector collector) {
-        if (TupleHelpers.isTickTuple(tuple)) {
+        if (isTickTuple(tuple)) {
             getLogger().debug("Received tick tuple, triggering emit of current rankings");
             emitRankings(collector);
         } else {
