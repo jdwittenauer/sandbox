@@ -14,7 +14,6 @@ package interfaces;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public interface IQueue<T> {
-
     /**
      * Add a value to the beginning of the queue.
      *
@@ -71,19 +70,4 @@ public interface IQueue<T> {
      * @return True if the queue is valid.
      */
     public boolean validate();
-
-    /**
-     * Get this Queue as a Java compatible Queue
-     *
-     * @return Java compatible Queue
-     */
-    public java.util.Queue<T> toQueue();
-
-    /**
-     * Get this Queue as a Java compatible Collection
-     *
-     * @return Java compatible Collection
-     */
-    public java.util.Collection<T> toCollection();
-
 }

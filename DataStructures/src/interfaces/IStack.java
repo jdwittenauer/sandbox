@@ -14,7 +14,6 @@ package interfaces;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public interface IStack<T> {
-
     /**
      * Push value on top of stack
      *
@@ -70,19 +69,4 @@ public interface IStack<T> {
      * @return True if the stack is valid.
      */
     public boolean validate();
-
-    /**
-     * Get this Stack as a Java compatible Queue
-     *
-     * @return Java compatible Queue
-     */
-    public java.util.Queue<T> toLifoQueue();
-
-    /**
-     * Get this Stack as a Java compatible Collection
-     *
-     * @return Java compatible Collection
-     */
-    public java.util.Collection<T> toCollection();
-
 }

@@ -13,7 +13,6 @@ package interfaces;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public interface IHeap<T> {
-
     /**
      * Add value to the heap.
      *
@@ -70,12 +69,4 @@ public interface IHeap<T> {
      * @return True if the heap is valid.
      */
     public boolean validate();
-
-    /**
-     * Get this Heap as a Java compatible Collection
-     *
-     * @return Java compatible Collection
-     */
-    public java.util.Collection<T> toCollection();
-
 }

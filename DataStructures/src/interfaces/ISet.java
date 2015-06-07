@@ -11,7 +11,6 @@ package interfaces;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public interface ISet<T> {
-
     /**
      * Add value to set.
      *
@@ -54,19 +53,4 @@ public interface ISet<T> {
      * @return True if the set is valid.
      */
     public boolean validate();
-
-    /**
-     * Get this Set as a Java compatible Set
-     *
-     * @return Java compatible Set
-     */
-    public java.util.Set<T> toSet();
-
-    /**
-     * Get this Set as a Java compatible Collection
-     *
-     * @return Java compatible Collection
-     */
-    public java.util.Collection<T> toCollection();
-
 }

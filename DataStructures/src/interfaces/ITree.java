@@ -11,7 +11,6 @@ package interfaces;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public interface ITree<T> {
-
     /**
      * Add value to the tree. Tree can contain multiple equal values.
      *
@@ -54,12 +53,4 @@ public interface ITree<T> {
      * @return True if the tree is valid.
      */
     public boolean validate();
-
-    /**
-     * Get Tree as a Java compatible Collection
-     *
-     * @return Java compatible Collection
-     */
-    public java.util.Collection<T> toCollection();
-
 }

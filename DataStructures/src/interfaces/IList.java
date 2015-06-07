@@ -9,7 +9,6 @@ package interfaces;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public interface IList<T> {
-
     /**
      * Add value to list.
      *
@@ -52,19 +51,4 @@ public interface IList<T> {
      * @return True if the list is valid.
      */
     public boolean validate();
-
-    /**
-     * Get this List as a Java compatible List
-     *
-     * @return Java compatible List
-     */
-    public java.util.List<T> toList();
-
-    /**
-     * Get this List as a Java compatible Collection
-     *
-     * @return Java compatible Collection
-     */
-    public java.util.Collection<T> toCollection();
-
 }

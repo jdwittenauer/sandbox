@@ -10,7 +10,6 @@ package interfaces;
  * @author Justin Wetherell <phishman3579@gmail.com>
  */
 public interface IMap<K,V> {
-
     /**
      * Put key->value pair in the map.
      *
@@ -62,12 +61,4 @@ public interface IMap<K,V> {
      * @return True if the map is valid.
      */
     public boolean validate();
-
-    /**
-     *  Wraps this map in a Java compatible Map
-     *
-     * @return Java compatible Map
-     */
-    public java.util.Map<K,V> toMap();
-
 }
