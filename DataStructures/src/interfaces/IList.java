@@ -6,7 +6,7 @@ package interfaces;
  *
  * http://en.wikipedia.org/wiki/List_(computing)
  *
- * @author Justin Wetherell <phishman3579@gmail.com>
+ * Origin implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
  */
 public interface IList<T> {
     /**

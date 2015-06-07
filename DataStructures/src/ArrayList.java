@@ -8,7 +8,7 @@ import interfaces.*;
  *
  * http://en.wikipedia.org/wiki/Dynamic_array
  *
- * @author Justin Wetherell <phishman3579@gmail.com>
+ * Origin implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
  */
 @SuppressWarnings("unchecked")
 public class ArrayList<T> implements IList<T> {

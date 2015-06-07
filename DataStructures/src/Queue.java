@@ -2,44 +2,77 @@ import interfaces.*;
 import common.*;
 
 /**
- * Linked List (doubly link). A linked list is a data structure consisting
- * of a group of nodes which together represent a sequence.
- *
- * http://en.wikipedia.org/wiki/Linked_list
+ * This queue implementation is backed by a linked list.
  *
  * Origin implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
  */
 @SuppressWarnings("unchecked")
-public class LinkedList<T> implements IList<T> {
-    private int size = 0;
+public class Queue<T> implements IQueue<T> {
     private Node<T> head = null;
     private Node<T> tail = null;
+    private int size = 0;
+
+    public Queue() {
+        head = null;
+        tail = null;
+        size = 0;
+    }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public boolean add(T value) {
+    public boolean offer(T value) {
         return add(new Node<>(value));
     }
 
     /**
-     * Add node to list.
+     * Enqueue the node in the queue.
      *
-     * @param node to add to list.
+     * @param node to enqueue.
      */
     private boolean add(Node<T> node) {
         if (head == null) {
             head = node;
             tail = node;
         } else {
-            Node<T> prev = tail;
-            prev.next = node;
-            node.prev = prev;
-            tail = node;
+            Node<T> oldHead = head;
+            head = node;
+            node.next = oldHead;
+            oldHead.prev = node;
         }
         size++;
         return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public T poll() {
+        T result = null;
+        if (tail != null) {
+            result = tail.value;
+
+            Node<T> prev = tail.prev;
+            if (prev != null) {
+                prev.next = null;
+                tail = prev;
+            } else {
+                head = null;
+                tail = null;
+            }
+            size--;
+        }
+        return result;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public T peek() {
+        return (tail != null) ? tail.value : null;
     }
 
     /**
@@ -52,9 +85,10 @@ public class LinkedList<T> implements IList<T> {
         while (node != null && (!node.value.equals(value))) {
             node = node.next;
         }
-        if (node == null)
-            return false;
+        return (node != null) && remove(node);
+    }
 
+    private boolean remove(Node<T> node) {
         // Update the tail, if needed
         if (node.equals(tail))
             tail = node.prev;
@@ -91,6 +125,9 @@ public class LinkedList<T> implements IList<T> {
      */
     @Override
     public boolean contains(T value) {
+        if (head == null)
+            return false;
+
         Node<T> node = head;
         while (node != null) {
             if (node.value.equals(value))
@@ -113,7 +150,7 @@ public class LinkedList<T> implements IList<T> {
      */
     @Override
     public boolean validate() {
-        java.util.Set<T> keys = new java.util.HashSet<>();
+        java.util.Set<T> keys = new java.util.HashSet<T>();
         Node<T> node = head;
         if (node!=null) {
             keys.add(node.value);
@@ -124,7 +161,7 @@ public class LinkedList<T> implements IList<T> {
                 child = child.next;
             }
         }
-        return (keys.size()==size);
+        return (keys.size()==size());
     }
 
     private boolean validate(Node<T> node, java.util.Set<T> keys) {
@@ -134,6 +171,7 @@ public class LinkedList<T> implements IList<T> {
         Node<T> child = node.next;
         if (child!=null) {
             if (!child.prev.equals(node)) return false;
+            if (!validate(child,keys)) return false;
         } else {
             if (!node.equals(tail)) return false;
         }

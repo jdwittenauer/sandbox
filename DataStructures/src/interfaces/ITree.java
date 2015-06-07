@@ -8,7 +8,7 @@ package interfaces;
  *
  * http://en.wikipedia.org/wiki/Tree_(data_structure)
  *
- * @author Justin Wetherell <phishman3579@gmail.com>
+ * Origin implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
  */
 public interface ITree<T> {
     /**

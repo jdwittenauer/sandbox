@@ -10,7 +10,7 @@ package interfaces;
  *
  * http://en.wikipedia.org/wiki/Heap
  *
- * @author Justin Wetherell <phishman3579@gmail.com>
+ * Origin implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
  */
 public interface IHeap<T> {
     /**

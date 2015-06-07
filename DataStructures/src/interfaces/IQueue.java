@@ -11,7 +11,7 @@ package interfaces;
  *
  * http://en.wikipedia.org/wiki/Queue_(abstract_data_type)
  *
- * @author Justin Wetherell <phishman3579@gmail.com>
+ * Origin implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
  */
 public interface IQueue<T> {
     /**
