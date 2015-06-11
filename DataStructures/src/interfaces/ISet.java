@@ -8,7 +8,7 @@ package interfaces;
  *
  * http://en.wikipedia.org/wiki/Set_(abstract_data_type)
  *
- * Origin implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
+ * Original implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
  */
 public interface ISet<T> {
     /**

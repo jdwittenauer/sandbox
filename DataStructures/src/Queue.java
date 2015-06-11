@@ -4,7 +4,7 @@ import common.*;
 /**
  * This queue implementation is backed by a linked list.
  *
- * Origin implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
+ * Original implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
  */
 @SuppressWarnings("unchecked")
 public class Queue<T> implements IQueue<T> {

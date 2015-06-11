@@ -7,7 +7,7 @@ package interfaces;
  *
  * http://en.wikipedia.org/wiki/Associative_array
  *
- * Origin implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
+ * Original implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
  */
 public interface IMap<K,V> {
     /**

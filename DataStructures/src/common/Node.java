@@ -3,7 +3,7 @@ package common;
 /**
  * Generic implementation of a node used by linked list data structures.
  *
- * Origin implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
+ * Original implementation borrowed from https://github.com/phishman3579/java-algorithms-implementation
  */
 public class Node<T> {
     public T value = null;
