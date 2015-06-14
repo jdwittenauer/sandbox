@@ -19,21 +19,7 @@ public interface IHeap<T> {
      * @param value to add to the heap.
      * @return True if added to the heap.
      */
-    public boolean add(T value);
-
-    /**
-     * Get the value of the head node from the heap.
-     *
-     * @return value of the head node.
-     */
-    public T getHeadValue();
-
-    /**
-     * Remove the head node from the heap.
-     *
-     * @return value of the head node.
-     */
-    public T removeHead();
+    boolean add(T value);
 
     /**
      * Remove the value from the heap.
@@ -41,12 +27,26 @@ public interface IHeap<T> {
      * @param value to remove from heap.
      * @return True if value was removed form the heap;
      */
-    public T remove(T value);
+    T remove(T value);
+
+    /**
+     * Get the value of the head node from the heap.
+     *
+     * @return value of the head node.
+     */
+    T getHeadValue();
+
+    /**
+     * Remove the head node from the heap.
+     *
+     * @return value of the head node.
+     */
+    T removeHead();
 
     /**
      * Clear the entire heap.
      */
-    public void clear();
+    void clear();
 
     /**
      * Does the value exist in the heap. Warning this is a O(n) operation.
@@ -54,19 +54,19 @@ public interface IHeap<T> {
      * @param value to locate in the heap.
      * @return True if the value is in heap.
      */
-    public boolean contains(T value);
+    boolean contains(T value);
 
     /**
      * Get size of the heap.
      *
      * @return size of the heap.
      */
-    public int size();
+    int size();
 
     /**
      * Validate the heap according to the invariants.
      *
      * @return True if the heap is valid.
      */
-    public boolean validate();
+    boolean validate();
 }

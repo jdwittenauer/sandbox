@@ -24,24 +24,6 @@ public class Stack<T> implements IStack<T> {
     }
 
     /**
-     * Push node onto the stack.
-     *
-     * @param node to push on the stack.
-     */
-    private boolean push(Node<T> node) {
-        if (top == null) {
-            top = node;
-        } else {
-            Node<T> oldTop = top;
-            top = node;
-            top.next = oldTop;
-            oldTop.prev = top;
-        }
-        size++;
-        return true;
-    }
-
-    /**
      * {@inheritDoc}
      */
     @Override
@@ -66,21 +48,6 @@ public class Stack<T> implements IStack<T> {
     }
 
     /**
-     * Get item at index.
-     *
-     * @param index of item.
-     * @return T at index.
-     */
-    public T get(int index) {
-        Node<T> current = top;
-        for (int i = 0; i < index; i++) {
-            if (current == null) break;
-            current = current.next;
-        }
-        return (current != null) ? current.value : null;
-    }
-
-    /**
      * {@inheritDoc}
      */
     @Override
@@ -91,25 +58,6 @@ public class Stack<T> implements IStack<T> {
             node = node.next;
         }
         return (node != null) && remove(node);
-    }
-
-    private boolean remove(Node<T> node) {
-        Node<T> prev = node.prev;
-        Node<T> next = node.next;
-        if (prev != null && next != null) {
-            prev.next = next;
-            next.prev = prev;
-        } else if (prev != null) {
-            prev.next = null;
-        } else if (next != null) {
-            // Node is the top
-            next.prev = null;
-            top = next;
-        } else {
-            top = null;
-        }
-        size--;
-        return true;
     }
 
     /**
@@ -162,14 +110,6 @@ public class Stack<T> implements IStack<T> {
         return (keys.size() == size());
     }
 
-    private boolean validate(Node<T> node, java.util.Set<T> keys) {
-        if (node.value == null) return false;
-        keys.add(node.value);
-
-        Node<T> child = node.next;
-        return (child == null || child.prev.equals(node));
-    }
-
     /**
      * {@inheritDoc}
      */
@@ -182,5 +122,45 @@ public class Stack<T> implements IStack<T> {
             node = node.next;
         }
         return builder.toString();
+    }
+
+    private boolean push(Node<T> node) {
+        if (top == null) {
+            top = node;
+        } else {
+            Node<T> oldTop = top;
+            top = node;
+            top.next = oldTop;
+            oldTop.prev = top;
+        }
+        size++;
+        return true;
+    }
+
+    private boolean remove(Node<T> node) {
+        Node<T> prev = node.prev;
+        Node<T> next = node.next;
+        if (prev != null && next != null) {
+            prev.next = next;
+            next.prev = prev;
+        } else if (prev != null) {
+            prev.next = null;
+        } else if (next != null) {
+            // Node is the top
+            next.prev = null;
+            top = next;
+        } else {
+            top = null;
+        }
+        size--;
+        return true;
+    }
+
+    private boolean validate(Node<T> node, java.util.Set<T> keys) {
+        if (node.value == null) return false;
+        keys.add(node.value);
+
+        Node<T> child = node.next;
+        return (child == null || child.prev.equals(node));
     }
 }

@@ -19,6 +19,15 @@ public class HashMap<K extends Number, V> implements IMap<K,V> {
     private int size = 0;
 
     /**
+     * Create a hash map with the default hashing key.
+     */
+    public HashMap() {
+        if (hashingKey == null)
+            hashingKey = (K) new Integer(minimumSize);
+        initializeMap();
+    }
+
+    /**
      * Create a hash map with K as the hashing key.
      *
      * @param key to use for the hashing key.
@@ -30,74 +39,11 @@ public class HashMap<K extends Number, V> implements IMap<K,V> {
     }
 
     /**
-     * Create a hash map with the default hashing key.
-     */
-    public HashMap() {
-        if (hashingKey == null)
-            hashingKey = (K) new Integer(minimumSize);
-        initializeMap();
-    }
-
-    /**
      * {@inheritDoc}
      */
     @Override
     public V put(K key, V value) {
         return put(new Pair<>(key, value));
-    }
-
-    private V put(Pair<K,V> newPair) {
-        V prev = null;
-        int hashedKey = hashingFunction(newPair.key);
-
-        // Check initial position
-        Pair<K, V> pair = array[hashedKey];
-        if (pair == null) {
-            array[hashedKey] = newPair;
-            size++;
-
-            // If size is greater than threshold
-            int maxSize = (int)(loadFactor * array.length);
-            if (size >= maxSize)
-                resize();
-
-            return null;
-        }
-        if (pair.key.equals(newPair.key)) {
-            prev = pair.value;
-            pair.value = newPair.value;
-            return prev;
-        }
-
-        // Probing until we get back to the starting index
-        int start = getNextIndex(hashedKey);
-        while (start != hashedKey) {
-            if (start >= array.length) {
-                start = 0;
-                if (start == hashedKey)
-                    break;
-            }
-            pair = array[start];
-            if (pair == null) {
-                array[start] = newPair;
-                size++;
-
-                // If size is greater than threshold
-                int maxSize = (int)(loadFactor*array.length);
-                if (size >= maxSize)
-                    resize();
-
-                return null;
-            }
-            if (pair.key.equals(newPair.key)) {
-                prev = pair.value;
-                pair.value = newPair.value;
-                return prev;
-            }
-            start = getNextIndex(start);
-        }
-        // We should never get here
-        return null;
     }
 
     /**
@@ -131,14 +77,6 @@ public class HashMap<K extends Number, V> implements IMap<K,V> {
         }
         // If we get here, probing failed
         return null;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean contains(K key) {
-        return (get(key) != null);
     }
 
     /**
@@ -203,8 +141,79 @@ public class HashMap<K extends Number, V> implements IMap<K,V> {
      * {@inheritDoc}
      */
     @Override
+    public boolean contains(K key) {
+        return (get(key) != null);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public int size() {
         return size;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean validate() {
+        java.util.Set<K> keys = new java.util.HashSet<>();
+        for (Pair<K, V> pair : array) {
+            if (pair == null)
+                continue;
+            K k = pair.key;
+            V v = pair.value;
+            if (k == null || v == null) return false;
+            if (keys.contains(k)) return false;
+            keys.add(k);
+        }
+        return (keys.size() == size());
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        StringBuilder builder = new StringBuilder();
+        for (int key = 0; key < array.length; key++) {
+            Pair<K, V> p = array[key];
+            if (p == null)
+                continue;
+            V value = p.value;
+            if (value != null)
+                builder.append(key).append("=").append(value).append(", ");
+        }
+        return builder.toString();
+    }
+
+    private static int getLargerSize(int input) {
+        int b = (int)((Math.log(2*input) / Math.log(2)));
+        return (int) Math.pow(2, b);
+    }
+
+    private static int getSmallerSize(int input) {
+        int b = (int)((Math.log(input/3) / Math.log(2)));
+        return (int) Math.pow(2, b);
+    }
+
+    private static int getNextIndex(int input) {
+        return input+1;
+    }
+
+    private void initializeMap() {
+        int length = getLargerSize(minimumSize);
+        array = new Pair[length];
+        size = 0;
+        hashingKey = (K) new Integer(length);
+    }
+
+    private int hashingFunction(K key) {
+        int k = key.intValue() % hashingKey.intValue();
+        if (k >= array.length)
+            k = k - ((k / array.length) * array.length);
+        return k;
     }
 
     private void resize() {
@@ -243,84 +252,57 @@ public class HashMap<K extends Number, V> implements IMap<K,V> {
         }
     }
 
-    /**
-     * Returns the closest base 2 number (2^x) which is larger than the 2*input.
-     */
-    private static int getLargerSize(int input) {
-        int b = (int)((Math.log(2*input) / Math.log(2)));
-        return (int) Math.pow(2, b);
-    }
+    private V put(Pair<K,V> newPair) {
+        V prev = null;
+        int hashedKey = hashingFunction(newPair.key);
 
-    /**
-     * Returns the closest base 2 number (2^x) which is smaller than the input/3.
-     */
-    private static int getSmallerSize(int input) {
-        int b = (int)((Math.log(input/3) / Math.log(2)));
-        return (int) Math.pow(2, b);
-    }
+        // Check initial position
+        Pair<K, V> pair = array[hashedKey];
+        if (pair == null) {
+            array[hashedKey] = newPair;
+            size++;
 
-    /**
-     * Returns the next index in the probing sequence, at this point it's linear.
-     */
-    private static int getNextIndex(int input) {
-        return input+1;
-    }
+            // If size is greater than threshold
+            int maxSize = (int)(loadFactor * array.length);
+            if (size >= maxSize)
+                resize();
 
-    /**
-     * Initialize the hash array.
-     */
-    private void initializeMap() {
-        int length = getLargerSize(minimumSize);
-        array = new Pair[length];
-        size = 0;
-        hashingKey = (K) new Integer(length);
-    }
-
-    /**
-     * The hashing function. Converts the key into an integer.
-     *
-     * @param key to create a hash for.
-     * @return Integer which represents the key.
-     */
-    private int hashingFunction(K key) {
-        int k = key.intValue() % hashingKey.intValue();
-        if (k >= array.length)
-            k = k - ((k / array.length) * array.length);
-        return k;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean validate() {
-        java.util.Set<K> keys = new java.util.HashSet<>();
-        for (Pair<K, V> pair : array) {
-            if (pair == null)
-                continue;
-            K k = pair.key;
-            V v = pair.value;
-            if (k == null || v == null) return false;
-            if (keys.contains(k)) return false;
-            keys.add(k);
+            return null;
         }
-        return (keys.size() == size());
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String toString() {
-        StringBuilder builder = new StringBuilder();
-        for (int key = 0; key < array.length; key++) {
-            Pair<K, V> p = array[key];
-            if (p == null)
-                continue;
-            V value = p.value;
-            if (value != null)
-                builder.append(key).append("=").append(value).append(", ");
+        if (pair.key.equals(newPair.key)) {
+            prev = pair.value;
+            pair.value = newPair.value;
+            return prev;
         }
-        return builder.toString();
+
+        // Probing until we get back to the starting index
+        int start = getNextIndex(hashedKey);
+        while (start != hashedKey) {
+            if (start >= array.length) {
+                start = 0;
+                if (start == hashedKey)
+                    break;
+            }
+            pair = array[start];
+            if (pair == null) {
+                array[start] = newPair;
+                size++;
+
+                // If size is greater than threshold
+                int maxSize = (int)(loadFactor*array.length);
+                if (size >= maxSize)
+                    resize();
+
+                return null;
+            }
+            if (pair.key.equals(newPair.key)) {
+                prev = pair.value;
+                pair.value = newPair.value;
+                return prev;
+            }
+            start = getNextIndex(start);
+        }
+        // We should never get here
+        return null;
     }
 }

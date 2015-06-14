@@ -24,25 +24,6 @@ public class LinkedList<T> implements IList<T> {
     }
 
     /**
-     * Add node to list.
-     *
-     * @param node to add to list.
-     */
-    private boolean add(Node<T> node) {
-        if (head == null) {
-            head = node;
-            tail = node;
-        } else {
-            Node<T> prev = tail;
-            prev.next = node;
-            node.prev = prev;
-            tail = node;
-        }
-        size++;
-        return true;
-    }
-
-    /**
      * {@inheritDoc}
      */
     @Override
@@ -75,6 +56,24 @@ public class LinkedList<T> implements IList<T> {
         }
         size--;
         return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public T get(int index) {
+        // Not implemented
+        return null;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public T set(int index, T value) {
+        // Not implemented
+        return null;
     }
 
     /**
@@ -127,19 +126,6 @@ public class LinkedList<T> implements IList<T> {
         return (keys.size()==size);
     }
 
-    private boolean validate(Node<T> node, java.util.Set<T> keys) {
-        if (node.value==null) return false;
-        keys.add(node.value);
-
-        Node<T> child = node.next;
-        if (child!=null) {
-            if (!child.prev.equals(node)) return false;
-        } else {
-            if (!node.equals(tail)) return false;
-        }
-        return true;
-    }
-
     /**
      * {@inheritDoc}
      */
@@ -152,5 +138,32 @@ public class LinkedList<T> implements IList<T> {
             node = node.next;
         }
         return builder.toString();
+    }
+
+    private boolean add(Node<T> node) {
+        if (head == null) {
+            head = node;
+            tail = node;
+        } else {
+            Node<T> prev = tail;
+            prev.next = node;
+            node.prev = prev;
+            tail = node;
+        }
+        size++;
+        return true;
+    }
+
+    private boolean validate(Node<T> node, java.util.Set<T> keys) {
+        if (node.value==null) return false;
+        keys.add(node.value);
+
+        Node<T> child = node.next;
+        if (child!=null) {
+            if (!child.prev.equals(node)) return false;
+        } else {
+            if (!node.equals(tail)) return false;
+        }
+        return true;
     }
 }

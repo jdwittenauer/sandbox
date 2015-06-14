@@ -19,21 +19,21 @@ public interface IStack<T> {
      *
      * @param value to push on the stack.
      */
-    public boolean push(T value);
+    boolean push(T value);
 
     /**
      * Pop the value from the top of stack.
      *
      * @return value popped off the top of the stack.
      */
-    public T pop();
+    T pop();
 
     /**
      * Peek the value from the top of stack.
      *
      * @return value popped off the top of the stack.
      */
-    public T peek();
+    T peek();
 
     /**
      * Remove value from stack.
@@ -41,12 +41,12 @@ public interface IStack<T> {
      * @param value to remove from stack.
      * @return True if value was removed.
      */
-    public boolean remove(T value);
+    boolean remove(T value);
 
     /**
      * Clear the entire stack.
      */
-    public void clear();
+    void clear();
 
     /**
      * Does stack contain object.
@@ -54,19 +54,19 @@ public interface IStack<T> {
      * @param value object to find in stack.
      * @return True is stack contains object.
      */
-    public boolean contains(T value);
+    boolean contains(T value);
 
     /**
      * Size of the stack.
      *
      * @return size of the stack.
      */
-    public int size();
+    int size();
 
     /**
      * Validate the stack according to the invariants.
      *
      * @return True if the stack is valid.
      */
-    public boolean validate();
+    boolean validate();
 }

@@ -13,7 +13,6 @@ import interfaces.*;
 @SuppressWarnings("unchecked")
 public class ArrayList<T> implements IList<T> {
     private static final int MINIMUM_SIZE = 10;
-
     private int size = 0;
     private T[] array = (T[]) new Object[MINIMUM_SIZE];
 
@@ -23,27 +22,6 @@ public class ArrayList<T> implements IList<T> {
     @Override
     public boolean add(T value) {
         return add(size, value);
-    }
-
-    /**
-     * Add value to list at index.
-     *
-     * @param index to add value.
-     * @param value to add to list.
-     */
-    public boolean add(int index, T value) {
-        int growSize = this.size;
-        if (size >= array.length) {
-            array = Arrays.copyOf(array, (growSize + (growSize >> 1)));
-        }
-        if (index == size) {
-            array[size++] = value;
-        } else {
-            // Shift the array down one spot
-            System.arraycopy(array, index, array, index + 1, size - index);
-            array[index] = value;
-        }
-        return true;
     }
 
     /**
@@ -61,52 +39,23 @@ public class ArrayList<T> implements IList<T> {
     }
 
     /**
-     * Remove value at index from list.
-     *
-     * @param index of value to remove.
-     * @return value at index.
+     * {@inheritDoc}
      */
-    public T remove(int index) {
+    @Override
+    public T get(int index) {
         if (index < 0 || index >= size) return null;
-
-        T t = array[index];
-        if (index != --size) {
-            // Shift the array down one spot
-            System.arraycopy(array, index + 1, array, index, size - index);
-        }
-        array[size] = null;
-
-        int shrinkSize = size;
-        if (size >= MINIMUM_SIZE && size < (shrinkSize + (shrinkSize << 1))) {
-            System.arraycopy(array, 0, array, 0, size);
-        }
-
-        return t;
+        return array[index];
     }
 
     /**
-     * Set value at index.
-     *
-     * @param index of value to set.
-     * @param value to set.
-     * @return value previously at index.
+     * {@inheritDoc}
      */
+    @Override
     public T set(int index, T value) {
         if (index < 0 || index >= size) return null;
         T t = array[index];
         array[index] = value;
         return t;
-    }
-
-    /**
-     * Get value at index.
-     *
-     * @param index of value to get.
-     * @return value at index.
-     */
-    public T get(int index) {
-        if (index < 0 || index >= size) return null;
-        return array[index];
     }
 
     /**
@@ -165,5 +114,38 @@ public class ArrayList<T> implements IList<T> {
             builder.append(array[i]).append(", ");
         }
         return builder.toString();
+    }
+
+    private boolean add(int index, T value) {
+        int growSize = this.size;
+        if (size >= array.length) {
+            array = Arrays.copyOf(array, (growSize + (growSize >> 1)));
+        }
+        if (index == size) {
+            array[size++] = value;
+        } else {
+            // Shift the array down one spot
+            System.arraycopy(array, index, array, index + 1, size - index);
+            array[index] = value;
+        }
+        return true;
+    }
+
+    private T remove(int index) {
+        if (index < 0 || index >= size) return null;
+
+        T t = array[index];
+        if (index != --size) {
+            // Shift the array down one spot
+            System.arraycopy(array, index + 1, array, index, size - index);
+        }
+        array[size] = null;
+
+        int shrinkSize = size;
+        if (size >= MINIMUM_SIZE && size < (shrinkSize + (shrinkSize << 1))) {
+            System.arraycopy(array, 0, array, 0, size);
+        }
+
+        return t;
     }
 }

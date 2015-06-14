@@ -20,21 +20,21 @@ public interface IQueue<T> {
      * @param value to add to queue.
      * @return True if added to queue.
      */
-    public boolean offer(T value);
+    boolean offer(T value);
 
     /**
      * Remove a value from the tail of the queue.
      *
      * @return value from the tail of the queue.
      */
-    public T poll();
+    T poll();
 
     /**
      * Get but do not remove tail of the queue.
      *
      * @return value from the tail of the queue.
      */
-    public T peek();
+    T peek();
 
     /**
      * Remove the value from the queue.
@@ -42,12 +42,12 @@ public interface IQueue<T> {
      * @param value to remove from the queue.
      * @return True if the value was removed from the queue.
      */
-    public boolean remove(T value);
+    boolean remove(T value);
 
     /**
      * Clear the entire queue.
      */
-    public void clear();
+    void clear();
 
     /**
      * Does the queue contain the value.
@@ -55,19 +55,19 @@ public interface IQueue<T> {
      * @param value to find in the queue.
      * @return True if the queue contains the value.
      */
-    public boolean contains(T value);
+    boolean contains(T value);
 
     /**
      * Get the size of the queue.
      *
      * @return size of the queue.
      */
-    public int size();
+    int size();
 
     /**
      * Validate the queue according to the invariants.
      *
      * @return True if the queue is valid.
      */
-    public boolean validate();
+    boolean validate();
 }

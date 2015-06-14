@@ -17,7 +17,7 @@ public interface ITree<T> {
      * @param value to add to the tree.
      * @return True if successfully added to tree.
      */
-    public boolean add(T value);
+    boolean add(T value);
 
     /**
      * Remove first occurrence of value in the tree.
@@ -25,12 +25,12 @@ public interface ITree<T> {
      * @param value to remove from the tree.
      * @return T value removed from tree.
      */
-    public T remove(T value);
+    T remove(T value);
 
     /**
      * Clear the entire stack.
      */
-    public void clear();
+    void clear();
 
     /**
      * Does the tree contain the value.
@@ -38,19 +38,19 @@ public interface ITree<T> {
      * @param value to locate in the tree.
      * @return True if tree contains value.
      */
-    public boolean contains(T value);
+    boolean contains(T value);
 
     /**
      * Get number of nodes in the tree.
      *
      * @return Number of nodes in the tree.
      */
-    public int size();
+    int size();
 
     /**
      * Validate the tree according to the invariants.
      *
      * @return True if the tree is valid.
      */
-    public boolean validate();
+    boolean validate();
 }

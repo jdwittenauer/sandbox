@@ -27,25 +27,6 @@ public class Queue<T> implements IQueue<T> {
     }
 
     /**
-     * Enqueue the node in the queue.
-     *
-     * @param node to enqueue.
-     */
-    private boolean add(Node<T> node) {
-        if (head == null) {
-            head = node;
-            tail = node;
-        } else {
-            Node<T> oldHead = head;
-            head = node;
-            node.next = oldHead;
-            oldHead.prev = node;
-        }
-        size++;
-        return true;
-    }
-
-    /**
      * {@inheritDoc}
      */
     @Override
@@ -86,29 +67,6 @@ public class Queue<T> implements IQueue<T> {
             node = node.next;
         }
         return (node != null) && remove(node);
-    }
-
-    private boolean remove(Node<T> node) {
-        // Update the tail, if needed
-        if (node.equals(tail))
-            tail = node.prev;
-
-        Node<T> prev = node.prev;
-        Node<T> next = node.next;
-        if (prev != null && next != null) {
-            prev.next = next;
-            next.prev = prev;
-        } else if (prev != null) {
-            prev.next = null;
-        } else if (next != null) {
-            // Node is the head
-            next.prev = null;
-            head = next;
-        } else {
-            head = null;
-        }
-        size--;
-        return true;
     }
 
     /**
@@ -164,20 +122,6 @@ public class Queue<T> implements IQueue<T> {
         return (keys.size()==size());
     }
 
-    private boolean validate(Node<T> node, java.util.Set<T> keys) {
-        if (node.value==null) return false;
-        keys.add(node.value);
-
-        Node<T> child = node.next;
-        if (child!=null) {
-            if (!child.prev.equals(node)) return false;
-            if (!validate(child,keys)) return false;
-        } else {
-            if (!node.equals(tail)) return false;
-        }
-        return true;
-    }
-
     /**
      * {@inheritDoc}
      */
@@ -190,5 +134,56 @@ public class Queue<T> implements IQueue<T> {
             node = node.next;
         }
         return builder.toString();
+    }
+
+    private boolean add(Node<T> node) {
+        if (head == null) {
+            head = node;
+            tail = node;
+        } else {
+            Node<T> oldHead = head;
+            head = node;
+            node.next = oldHead;
+            oldHead.prev = node;
+        }
+        size++;
+        return true;
+    }
+
+    private boolean remove(Node<T> node) {
+        // Update the tail, if needed
+        if (node.equals(tail))
+            tail = node.prev;
+
+        Node<T> prev = node.prev;
+        Node<T> next = node.next;
+        if (prev != null && next != null) {
+            prev.next = next;
+            next.prev = prev;
+        } else if (prev != null) {
+            prev.next = null;
+        } else if (next != null) {
+            // Node is the head
+            next.prev = null;
+            head = next;
+        } else {
+            head = null;
+        }
+        size--;
+        return true;
+    }
+
+    private boolean validate(Node<T> node, java.util.Set<T> keys) {
+        if (node.value==null) return false;
+        keys.add(node.value);
+
+        Node<T> child = node.next;
+        if (child!=null) {
+            if (!child.prev.equals(node)) return false;
+            if (!validate(child,keys)) return false;
+        } else {
+            if (!node.equals(tail)) return false;
+        }
+        return true;
     }
 }

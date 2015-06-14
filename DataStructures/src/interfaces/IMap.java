@@ -17,7 +17,7 @@ public interface IMap<K,V> {
      * @param value to be inserted.
      * @return V previous value or null if none.
      */
-    public V put(K key, V value);
+    V put(K key, V value);
 
     /**
      * Get value for key.
@@ -25,7 +25,7 @@ public interface IMap<K,V> {
      * @param key to get value for.
      * @return value mapped to key.
      */
-    public V get(K key);
+    V get(K key);
 
     /**
      * Remove key and value from map.
@@ -33,12 +33,12 @@ public interface IMap<K,V> {
      * @param key to remove from the map.
      * @return True if removed or False if not found.
      */
-    public V remove(K key);
+    V remove(K key);
 
     /**
      * Clear the entire map.
      */
-    public void clear();
+    void clear();
 
     /**
      * Does the map contain the key.
@@ -46,19 +46,19 @@ public interface IMap<K,V> {
      * @param key to locate in the map.
      * @return True if key is in the map.
      */
-    public boolean contains(K key);
+    boolean contains(K key);
 
     /**
      * Number of key/value pairs in the hash map.
      *
      * @return number of key/value pairs.
      */
-    public int size();
+    int size();
 
     /**
      * Validate the map according to the invariants.
      *
      * @return True if the map is valid.
      */
-    public boolean validate();
+    boolean validate();
 }
